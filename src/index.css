@@ -54,11 +54,11 @@ main {
   border-radius: 5px;
   border: 1px solid #D5D4D8;
   text-indent: 5px;
-  
-
 }
 
-
+.form--input, .form--button {
+  font-size: 1.2rem;
+}
 
 .form--button {
   grid-column: 1 / -1;
@@ -132,4 +132,8 @@ main {
 .download--button {
   display: block;
   margin: 2rem auto; /* this center horizontally within the container */
+  font-size: 2rem;
+  padding: 1rem 5rem;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease-in-out;
 }
