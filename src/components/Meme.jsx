@@ -43,6 +43,71 @@ function, as seen below:
             [name]: value
         }))
     }
+
+
+    // Function for download 
+    // function handleDownload() {
+    //     const randomNumber = Math.floor(Math.random() * allMemes.length);
+    //     const url = allMemes[randomNumber].url;
+    //     setMeme((prevMeme) => ({
+    //       ...prevMeme,
+    //       randomImage: url
+    //     }));
+    //   }
+    
+    // Download image function 
+      function handleDownload() {
+
+        const canvas = document.createElement("canvas");
+        const context = canvas.getContext("2d");
+    
+        const image = new Image();
+        image.crossOrigin = "anonymous";
+    
+        image.onload = () => {
+          canvas.width = image.width;
+          canvas.height = image.height;
+          context.drawImage(image, 0, 0);
+    
+         // Font styles
+          context.font = "3.5rem impact";
+          context.fillStyle = "white";
+          context.textAlign = "center";
+
+         // Add text shadow
+           context.shadowColor = "black";
+           context.shadowOffsetX = 2;
+           context.shadowOffsetY = 2;
+           context.shadowBlur = 10;
+
+        
+        //Here can adjust the width and height of the text for download
+          context.fillText(meme.topText, canvas.width / 2, 70);
+          context.fillText(meme.bottomText, canvas.width / 2, canvas.height - 20);
+    
+          // Created a blob object to handle the data to create a downloadable image file
+
+          // Convert canvas to a Blob object
+          canvas.toBlob((blob) => {
+            //Converts the blob object into a URL to be downloadable
+            const url = URL.createObjectURL(blob);
+            // A link element
+            const link = document.createElement("a");
+            link.href = url;
+            link.download = "meme.jpg";
+
+            // This creates a click event on link element
+            link.click();
+            // Revoke the url to save memory & prevent memory leaks/free up resources
+            // This allows the browser to release the memory associated once the image is downloaded
+            URL.revokeObjectURL(url);
+          }, "image/jpeg");
+        };
+
+       
+    
+        image.src = meme.randomImage;
+    }
     
     return (
         <main>
@@ -75,6 +140,7 @@ function, as seen below:
                 <h2 className="meme--text top">{meme.topText}</h2>
                 <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
+            <button className="form--button" onClick={handleDownload}>Download</button>
         </main>
     )
 }
