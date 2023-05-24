@@ -24,28 +24,29 @@ main {
   font-size: 2rem;
 }
 
-.header--image {
+/* .header--image { //Can use if want to incorporate the header nav
   height: 100%;
   margin-right: 6px;
-}
+} */
 
 .header--title {
   font-size: 1.25rem;
   margin-right: auto;
 }
 
-.header--project {
+/* .header--project {
   font-size: 0.75rem;
   font-weight: 500;
-}
+} */
 
 
 /* --- FORM SECTION --- */
 .form {
   display: grid;
-  grid-template: 40px 40px / 1fr 1fr;
+  grid-template: 60px 40px / 1fr 1fr;
   gap: 17px;
-  margin-bottom: 17px;
+  margin-bottom: 5rem;
+
 }
 
 .form--input {
@@ -53,16 +54,22 @@ main {
   border-radius: 5px;
   border: 1px solid #D5D4D8;
   text-indent: 5px;
+  
+
 }
+
+
 
 .form--button {
   grid-column: 1 / -1;
+  height: 4rem;
   font-family: "Karla", sans-serif;
   border-radius: 5px;
   background: linear-gradient(90.41deg, #711F8D 1.14%, #A818DA 100%);
   color: white;
   border: none;
   cursor: pointer;
+
 }
 
 
@@ -119,4 +126,10 @@ main {
 
 .top {
   top: 0;
+}
+
+/* DOWNLOAD */
+.download--button {
+  display: block;
+  margin: 2rem auto; /* this center horizontally within the container */
 }

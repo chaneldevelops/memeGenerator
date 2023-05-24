@@ -145,7 +145,7 @@ function, as seen below:
                 <h2 className="meme--text top">{meme.topText}</h2>
                 <h2 className="meme--text bottom">{meme.bottomText}</h2>
             </div>
-            <button className="form--button" onClick={handleDownload}>Download</button>
+            <button className="download--button" onClick={handleDownload}>Download</button>
         </main>
     )
 }
