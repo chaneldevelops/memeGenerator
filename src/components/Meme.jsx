@@ -1,15 +1,16 @@
 import React from "react"
 
 export default function Meme() {
+    // Define state variables
     const [meme, setMeme] = React.useState({
-        topText: "",
+        topText: "", 
         bottomText: "",
-        randomImage: "http://i.imgflip.com/1bij.jpg" 
+        randomImage: "http://i.imgflip.com/1bij.jpg" // Initial value when reloaded
     })
     const [allMemes, setAllMemes] = React.useState([])
     
 /**
-useEffect takes a function as its parameter. If that function
+NOTE: useEffect takes a function as its parameter. If that function
 returns something, it needs to be a cleanup function. Otherwise,
 it should return nothing. If we make it an async function, it
 automatically retuns a promise instead of a function or nothing.
@@ -18,14 +19,23 @@ you need to define the function separately inside of the callback
 function, as seen below:
 */
     React.useEffect(() => {
+        // Defines an async function
         async function getMemes() {
+            // Sends a GET request to the URL using fetch from the API
             const res = await fetch("https://api.imgflip.com/get_memes")
+            /* 
+            - Await the response using "await" to make sure
+            the response is resolved before proceeding
+            - Parse the response data as JSON */
             const data = await res.json()
+            /* Update state (allMemes) with memes data and call the 
+            setAllMemes to fetch the memes when the component is mounted */
             setAllMemes(data.data.memes)
         }
         getMemes()
     }, [])
     
+    // Random meme image function 
     function getMemeImage() {
         const randomNumber = Math.floor(Math.random() * allMemes.length)
         const url = allMemes[randomNumber].url
@@ -43,30 +53,23 @@ function, as seen below:
             [name]: value
         }))
     }
-
-
-    // Function for download 
-    // function handleDownload() {
-    //     const randomNumber = Math.floor(Math.random() * allMemes.length);
-    //     const url = allMemes[randomNumber].url;
-    //     setMeme((prevMeme) => ({
-    //       ...prevMeme,
-    //       randomImage: url
-    //     }));
-    //   }
     
-    // Download image function 
+    // DOWNLOAD IMAGES FUNCTION 
       function handleDownload() {
-
+        // Canvas element
         const canvas = document.createElement("canvas");
+
+        // Used to draw from the methods/properties to draw the images on the canvas
         const context = canvas.getContext("2d");
     
         const image = new Image();
         image.crossOrigin = "anonymous";
     
         image.onload = () => {
+            // Sets the canvas dimensions to match the loaded image
           canvas.width = image.width;
           canvas.height = image.height;
+          // Draws the loaded image to the canvas at (0,0) position
           context.drawImage(image, 0, 0);
     
          // Font styles
@@ -111,6 +114,7 @@ function, as seen below:
     
     return (
         <main>
+            {/* FORM */}
             <div className="form">
                 <input 
                     type="text"
@@ -135,6 +139,7 @@ function, as seen below:
                     Get a new meme image 🖼
                 </button>
             </div>
+            {/* MEME IMAGE AREA */}
             <div className="meme">
                 <img src={meme.randomImage} className="meme--image" />
                 <h2 className="meme--text top">{meme.topText}</h2>
