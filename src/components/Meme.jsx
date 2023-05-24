@@ -73,7 +73,7 @@ function, as seen below:
           context.drawImage(image, 0, 0);
     
          // Font styles
-          context.font = "3.5rem impact";
+          context.font = "4rem impact";
           context.fillStyle = "white";
           context.textAlign = "center";
 
@@ -85,8 +85,8 @@ function, as seen below:
 
         
         //Here can adjust the width and height of the text for download
-          context.fillText(meme.topText, canvas.width / 2, 70);
-          context.fillText(meme.bottomText, canvas.width / 2, canvas.height - 20);
+          context.fillText(meme.topText, canvas.width / 2, 80);
+          context.fillText(meme.bottomText, canvas.width / 2, canvas.height - 30);
     
           // Created a blob object to handle the data to create a downloadable image file
 
@@ -136,7 +136,7 @@ function, as seen below:
                     className="form--button"
                     onClick={getMemeImage}
                 >
-                    Get a new meme image 🖼
+                    Get a new image 🖼
                 </button>
             </div>
             {/* MEME IMAGE AREA */}
