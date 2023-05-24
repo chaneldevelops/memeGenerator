@@ -12,6 +12,7 @@ main {
   padding: 36px;
 }
 
+/* --- HEADER SECTION ---*/
 .header {
   display: flex;
   justify-content: center;
@@ -38,6 +39,8 @@ main {
   font-weight: 500;
 }
 
+
+/* --- FORM SECTION --- */
 .form {
   display: grid;
   grid-template: 40px 40px / 1fr 1fr;
@@ -62,8 +65,14 @@ main {
   cursor: pointer;
 }
 
+
+/*--- MEME ---*/
 .meme {
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  
 }
 
 .meme--image {
@@ -80,7 +89,7 @@ main {
   margin: 15px 0;
   padding: 0 5px;
   font-family: impact, sans-serif;
-  font-size: 2em;
+  font-size: 3.5em;
   text-transform: uppercase;
   color: white;
   letter-spacing: 1px;
@@ -94,6 +103,14 @@ main {
       0 -2px 0 #000,
       -2px 0 0 #000,
       2px 2px 5px #000;
+}
+
+.meme--text.top {
+  margin-top: 2rem;
+}
+
+.meme--text.bottom {
+  margin-bottom: 1.5rem;
 }
 
 .bottom {
