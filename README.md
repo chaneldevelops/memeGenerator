@@ -42,7 +42,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Acknowledgements
 
-The Memes Generator project was developed as part of [Scrimba's React Bootcamp](https://scrimba.com/). Special thanks to the instructors and the Scrimba community for their guidance and support.
+The Memes Generator project was developed as part of code along project for [Scrimba's React Bootcamp](https://scrimba.com/). 
 
 ---
 
